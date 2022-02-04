@@ -1,3 +1,5 @@
+let weburl =()=> location.search.split(/[?#]/)[0];
+
 let s = (a) => document.getElementById(a);
 let categories = WebScrapper.getjson('https://wholly-api.herokuapp.com/websites/pngaaa.com/categories.php');
 let bydefault = 'nature';
@@ -40,7 +42,8 @@ function showcat(id, a) {
   if (!a) a = categories.data.length;
   for (let i = 0; i < a; i++) {
     let cat = categories.data[i];
-    s(id).insertAdjacentHTML('beforeend', ' <article><a href="'+location.href+'?q=' + cat + '">' + cat + '</a></article>');
+
+    s(id).insertAdjacentHTML('beforeend', ' <article><a href="'+weburl()+'?q=' + cat + '">' + cat + '</a></article>');
   }
 }
 showcat('folders', 3);
