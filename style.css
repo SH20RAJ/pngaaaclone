@@ -83,7 +83,7 @@ header > div {
   margin-left: 1rem;
 }
 
-main, .folders {
+main, .folders,section {
   width: calc(100% - 3rem);
   max-width: 800px;
   margin: 0 auto;
@@ -144,5 +144,39 @@ footer {
   width: 100%;
   height: 8rem;
   color: yellow;
+}
+
+#details span {
+    background: yellow;
+    display: inline-block;
+    padding: 4px;
+    margin: 4px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+.bar , #imgtitle{
+    width: 100%;
+    background: pink;
+    text-align: center;
+    border-radius: 8px;
+    border: 4px solid white;
+    padding: 6px;
+    font-weight: 700;
+    font-size: x-large;
+    
+}
+#details {
+    display: flex;
+    flex-direction: column;
+}
+#details #img{
+    background: pink;
+    text-align: center;
+    border-radius: 8px;
+    border: 4px solid white;
+    padding: 6px;
+}
+#details #img img{
+  width: 100%;
 }
 /*From :- https://codepen.io/SH20RAJ/pen/LYOZyeq?editors=1100*/
