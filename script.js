@@ -21,14 +21,14 @@ let showresult = (id,cat) => {
     let caption = 'nature';
 
     let html = `<figure style="background-image: url(${url})">
-    <figcaption><a href ="https://www.pngaaa.com/api-download/${result.data[i]}">Download</a></figcaption>
+    <figcaption><a href ="https://www.pngaaa.com/api-download/${result.data[i]}">Download</a> | <a href ="${url}" onclick="view(this.href)">View</a></figcaption>
   </figure>`;
     console.log(html);
     s(id).insertAdjacentHTML('beforeend', html);
   }
 
 }
-
+let view=()=>{};
 if(searchparam('q')){
   showresult('main',searchparam('q'));
   s('q').value = searchparam('q');
