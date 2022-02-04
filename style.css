@@ -3,9 +3,16 @@
 
 form{
   display: block;
-  position: absolute;
 }
 
+a{
+  text-decoration: none;
+  color: rgb(180, 180, 35);
+}
+a:hover{
+  opacity: .7;
+  scale: 2;
+}
 
 #blurry-filter {
   width: 100%;

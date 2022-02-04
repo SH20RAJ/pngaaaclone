@@ -1,5 +1,8 @@
 let s = (a) => document.getElementById(a);
 let categories = WebScrapper.getjson('https://wholly-api.herokuapp.com/websites/pngaaa.com/categories.php');
+let bydefault = 'nature';
+
+let searchparam = WebScrapper.getparam;
 
 let c=a=>console.log(a);
 //Functions
@@ -16,20 +19,28 @@ let showresult = (id,cat) => {
     let caption = 'nature';
 
     let html = `<figure style="background-image: url(${url})">
-    <figcaption>${caption}</figcaption>
+    <figcaption><a href ="https://www.pngaaa.com/api-download/${result.data[i]}">Download</a></figcaption>
   </figure>`;
     console.log(html);
     s(id).insertAdjacentHTML('beforeend', html);
   }
 
 }
-//showresult('main','nature');
+
+if(searchparam('q')){
+  showresult('main',searchparam('q'));
+  s('q').value = searchparam('q');
+  s('page').value = searchparam('page');
+} else {
+  showresult('main',bydefault);
+}
+
 
 function showcat(id, a) {
   if (!a) a = categories.data.length;
   for (let i = 0; i < a; i++) {
     let cat = categories.data[i];
-    s(id).insertAdjacentHTML('beforeend', '<article>' + cat + '</article>');
+    s(id).insertAdjacentHTML('beforeend', '<a href="'location.href+'?q=' + cat + '"> <article>' + cat + '</article></a>');
   }
 }
 showcat('folders', 3);
