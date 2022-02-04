@@ -34,7 +34,7 @@ if(searchparam('q')){
   s('q').value = searchparam('q');
   s('page').value = searchparam('page');
 } else {
-  showresult('main',bydefault);
+  showresult('main',bydefault,1);
 }
 
 
