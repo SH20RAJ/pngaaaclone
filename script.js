@@ -1,4 +1,4 @@
-let weburl =()=> location.search.split(/[?#]/)[0];
+let weburl =()=> location.href.split(/[?#]/)[0];
 
 let s = (a) => document.getElementById(a);
 let categories = WebScrapper.fetchjson('https://wholly-api.herokuapp.com/websites/pngaaa.com/categories.php');
@@ -9,7 +9,8 @@ let searchparam = WebScrapper.getparam;
 let c=a=>console.log(a);
 //Functions
 let getsearch = (cat, page) => {
-  let url = 'https://wholly-api.herokuapp.com/websites/pngaaa.com/search.php?q=' + cat + '&page=' + page + '';
+  if(!page) page = WebScrapper.getRandomInt(1,10);
+  let url = 'https://wholly-api.herokuapp.com/websites/pngaaa.com/search.php?q=' + cat.replace(/\s+/g, '-') + '&page=' + page + '';
   let nature = WebScrapper.fetchjson(url);
   c(url);
   return nature;
@@ -34,7 +35,7 @@ if(searchparam('q')){
   s('q').value = searchparam('q');
   s('page').value = searchparam('page');
 } else {
-  showresult('main',bydefault,1);
+  showresult('main',bydefault,WebScrapper.getRandomInt(1,10));
 }
 
 
@@ -43,7 +44,7 @@ function showcat(id, a) {
   for (let i = 0; i < a; i++) {
     let cat = categories.data[i];
 
-    s(id).insertAdjacentHTML('beforeend', ' <article><a href="'+weburl()+'?q=' + cat + '">' + cat + '</a></article>');
+    s(id).insertAdjacentHTML('beforeend', ' <article><a href="'+weburl()+'?q=' + cat.replace(/\s+/g, '-') + '">' + cat + '</a></article>');
   }
 }
 showcat('folders', 3);
