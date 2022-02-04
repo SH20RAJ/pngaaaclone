@@ -23,7 +23,7 @@ let showresult = (id,cat) => {
   }
 
 }
-showresult('main','nature');
+//showresult('main','nature');
 
 function showcat(id, a) {
   if (!a) a = categories.data.length;
