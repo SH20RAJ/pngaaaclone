@@ -40,7 +40,7 @@ function showcat(id, a) {
   if (!a) a = categories.data.length;
   for (let i = 0; i < a; i++) {
     let cat = categories.data[i];
-    s(id).insertAdjacentHTML('beforeend', '<a href="'location.href+'?q=' + cat + '"> <article>' + cat + '</article></a>');
+    s(id).insertAdjacentHTML('beforeend', ' <article><a href="'+location.href+'?q=' + cat + '">' + cat + '</a></article>');
   }
 }
 showcat('folders', 3);
