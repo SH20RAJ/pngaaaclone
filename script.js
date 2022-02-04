@@ -44,16 +44,24 @@ let showresult = (id,cat,page) => {
   let result = getsearch(cat,page);
   c(result);
   for (let i = 0; i < result.data.length; i++) {
-    let url = 'https://image.pngaaa.com/' + result.data[i].substr(-3, 3) +'/'+ result.data[i]+'-small.png';
+    let url = '/https://image.pngaaa.com/' + result.data[i].substr(-3, 3) +'/'+ result.data[i]+'-small.png';
 
     let html = `<figure style="background-image: url(${url})">
-    <figcaption><a href ="https://www.pngaaa.com/api-download/${result.data[i]}">Download</a> | <a href ="${url}" onclick="getdetails(${result.data[i]})">View</a></figcaption>
+    <figcaption><a href ="https://www.pngaaa.com/api-download/${result.data[i]}">Download</a> | <a href ="#details" onclick="view(${result.data[i]});">View</a></figcaption>
   </figure>`;
     s(id).insertAdjacentHTML('beforeend', html);
   }
 
 }
-let view=()=>{};
+let view=(id)=>{
+  getdetails(id);
+  window.history.pushState('Pngaa','details.html','?details='+id);
+  window.scrollTo({
+  top: 0,
+  left: 0,
+  behavior: 'smooth'
+});
+};
 if(searchparam('q')){
   showresult('main',searchparam('q'),searchparam('page'));
   s('q').value = searchparam('q');
