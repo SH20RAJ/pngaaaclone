@@ -47,7 +47,7 @@ let showresult = (id,cat,page) => {
     let url = 'https://image.pngaaa.com/' + result.data[i].substr(-3, 3) +'/'+ result.data[i]+'-small.png';
 
     let html = `<figure style="background-image: url(${url})">
-    <figcaption><a href ="https://www.pngaaa.com/api-download/${result.data[i]}">Download</a> | <a href ="${url}" onclick="${getdetails(result.data[i])}">View</a></figcaption>
+    <figcaption><a href ="https://www.pngaaa.com/api-download/${result.data[i]}">Download</a> | <a href ="${url}" onclick="getdetails(${result.data[i]})">View</a></figcaption>
   </figure>`;
     s(id).insertAdjacentHTML('beforeend', html);
   }
