@@ -26,6 +26,18 @@ let getdetails=(id)=>{
   </div>
   `;
   s('details').innerHTML = html;
+
+  for (let i = 0; i < json.related.length; i++) {
+    let url = 'https://image.pngaaa.com/' + json.related[i].substr(-3, 3) +'/'+ json.related[i]+'-small.png';
+
+    let html = `<figure style="background-image: url(${url})">
+    <figcaption><a href ="https://www.pngaaa.com/api-download/${json.related[i]}">Download</a> | <a href ="#details" onclick="view(${json.related[i]});">View</a></figcaption>
+  </figure>`;
+    s('main').insertAdjacentHTML("afterbegin",html);
+  }
+
+  
+  
 }
 if(searchparam('details')){
   getdetails(searchparam('details'));
