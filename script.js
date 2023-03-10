@@ -46,7 +46,7 @@ if(searchparam('details')){
 
 let getsearch = (cat, page) => {
   if(!page) page = WebScrapper.getRandomInt(1,10);
-  let url = 'https://wholly-api.herokuapp.com/websites/pngaaa.com/search.php?q=' + cat.replace(/\s+/g, '-') + '&page=' + page + '';
+  let url = 'https://wholly-api.000webhostapp.com/websites/pngaaa.com/search.php?q=' + cat.replace(/\s+/g, '-') + '&page=' + page + '';
   let nature = WebScrapper.fetchjson(url);
   c(url);
   return nature;
