@@ -1,7 +1,7 @@
 # pngaaaclone
 Pngaaa Clone Using WebScrapperJS and WhollyAPI
 
-> See Demo :- [https://soppng.vercel.app/](https://soppng.vercel.app/) | https://pngaaaclone.sh20raj.repl.co/ | https://sh20raj.github.io/pngaaaclone/
+> See Demo :- [https://soppng.vercel.app/](https://soppng.vercel.app/) | https://sh20raj.github.io/pngaaaclone/
 
 > Demo on Blogger :- [https://sop-png.blogspot.com/](https://sop-png.blogspot.com/)
 
