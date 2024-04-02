@@ -1,7 +1,7 @@
 let weburl =()=> location.href.split(/[?#]/)[0];
 
 let s = (a) => document.getElementById(a);
-let categories = WebScrapper.fetchjson('https://wholly-api.000webhostapp.com/websites/pngaaa.com/categories.php');
+let categories = WebScrapper.fetchjson('https://wholly-api.appspages.online/websites/pngaaa.com/categories.php');
 let bydefault = 'nature';
 
 let searchparam = WebScrapper.getparam;
@@ -10,7 +10,7 @@ let c=a=>console.log(a);
 //Functions
 
 let getdetails=(id)=>{
-  let json = WebScrapper.fetchjson('https://wholly-api.000webhostapp.com/websites/pngaaa.com/details.php?id='+id);
+  let json = WebScrapper.fetchjson('https://wholly-api.appspages.online/websites/pngaaa.com/details.php?id='+id);
   let html = `
   <div class="clay" id="imgtitle">${json.title}</div>
    <div class="bar clay">
@@ -46,7 +46,7 @@ if(searchparam('details')){
 
 let getsearch = (cat, page) => {
   if(!page) page = WebScrapper.getRandomInt(1,10);
-  let url = 'https://wholly-api.000webhostapp.com/websites/pngaaa.com/search.php?q=' + cat.replace(/\s+/g, '-') + '&page=' + page + '';
+  let url = 'https://wholly-api.appspages.online/websites/pngaaa.com/search.php?q=' + cat.replace(/\s+/g, '-') + '&page=' + page + '';
   let nature = WebScrapper.fetchjson(url);
   c(url);
   return nature;
